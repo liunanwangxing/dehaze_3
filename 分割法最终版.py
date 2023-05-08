@@ -96,7 +96,7 @@ sum = 0
 per_image_Bmean = []
 per_image_Gmean = []
 per_image_Rmean = []
-src = cv2.imread('tiananmen.png')
+src = cv2.imread('canon3.bmp')
 
 I = src.astype('float64') / 255
 
@@ -140,12 +140,13 @@ for i in range(1, maxn+1):
     for ind in range(0, 3):
         rrcover[min(w):max(w), min(h):max(h), ind] = J[min(w):max(w), min(h):max(h), ind]
 
-cv2.imshow("dark", dark)
+# cv2.imshow("dark", dark)
 cv2.imshow("t", t)
-cv2.imshow('I', src)
-cv2.imshow('J', rrcover)
+# cv2.imshow('I', src)
+# cv2.imshow('J', rrcover)
 # cv2.imwrite("chaofenbianlv.png", rrcover* 255)
 # cv2.imwrite("tiananmen_fenge_jiawu_fenge.png", rrcover * 255)
+# cv2.imwrite("fog_364_fenge.jpg",rrcover*255)
 cv2.waitKey()
 
 

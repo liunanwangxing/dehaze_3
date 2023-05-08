@@ -85,7 +85,7 @@ if __name__ == '__main__':
     try:
         fn = sys.argv[1]
     except:
-        fn = 'tiananmen.png'
+        fn = 'foggyHouse.jpg'
 
 
     def nothing(*argv):
@@ -99,14 +99,19 @@ if __name__ == '__main__':
     dark = DarkChannel(I, 15) 
     A = AtmLight(I, dark) 
     te = TransmissionEstimate(I, A, 15) 
-    t = TransmissionRefine(src, te) 
-    J = Recover(I, t, A, 0.1) 
+    t = TransmissionRefine(src, te)
+    # t = cv2.imread("foggyHouse_yingyong.jpg",cv2.IMREAD_GRAYSCALE)
+    # t = t/255
+    # t = t
+    J = Recover(I, t, A, 0.1)
+
+    cv2.namedWindow('t', cv2.WINDOW_NORMAL)
 
     # cv2.imshow("dark",dark)
-    cv2.imshow("t",te)
+    cv2.imshow("t",t)
     # cv2.imshow('I',src) 
     # cv2.imshow('dawu', src)
     # cv2.imshow('J', J)
-    cv2.imwrite("tiananmen_fenge_jiawu_quwu.png",J*255)
-    cv2.waitKey() 
+    # cv2.imwrite("foggyHouse_zuizhong2.jpg",J*255)
+    cv2.waitKey()
     # 这是我的代码，哈哈哈

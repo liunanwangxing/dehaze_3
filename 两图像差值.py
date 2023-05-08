@@ -35,11 +35,12 @@ def multiply_image(input_image_path, multiplier):
     multiplied_image = np.clip(multiplied_image, 0, 255).astype(np.uint8)
 
     cv2.imshow("Multiplied Image", multiplied_image)
+    cv2.imwrite("tiananmen_chazhi.png", multiplied_image)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 # 设置输入图像路径
 input_image1_path = "tiananmen_fenge.png"
-input_image2_path = "tiananmen_fenge_jiawu_quwu.png"
+input_image2_path = "tiananmen.png"
 
 # 调用subtract_images函数
 difference = subtract_images(input_image1_path, input_image2_path)

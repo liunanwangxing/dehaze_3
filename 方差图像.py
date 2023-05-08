@@ -15,18 +15,19 @@ def calculate_rgb_variance(image_path):
 
 def display_image(image, title="Image"):
     cv2.imshow(title, image)
-    cv2.waitKey(0)
+
     cv2.destroyAllWindows()
 
-input_image_path = "tiananmen.png"
+input_image_path = "foggyHouse.jpg"
 
 image = cv2.imread(input_image_path)
 rgb_variance = calculate_rgb_variance(input_image_path)
 
 # 将方差图像归一化到0到255范围，以便显示
-
 normalized_variance = cv2.normalize(rgb_variance, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
 
 # 显示原始图像和方差图像
-# display_image(image, "Original Image")
-display_image(normalized_variance, "RGB Variance Image")
+cv2.imshow( "Original Image",image)
+cv2.imshow( "RGB Variance Image",normalized_variance)
+cv2.imwrite("foggyHouse_fangcha.jpg",normalized_variance)
+cv2.waitKey(0)
